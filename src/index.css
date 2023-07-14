@@ -77,3 +77,37 @@
   @apply flex;
   align-items: center;
 }
+
+.subnav-content {
+  display: none;
+}
+
+.subnav-content > li {
+  @apply font-belleza;
+}
+
+.subnav:hover .subnav-content {
+  display: flex;
+}
+
+.subnav:hover {
+  @apply bg-pale-silver;
+}
+
+.subnav-empty-bg {
+  display: none;
+}
+
+.subnav:hover ~ .subnav-empty-bg {
+  display: block;
+}
+
+.footer-divider::after {
+    position: absolute;
+    content: "";
+    background: #545e4f;
+    top: 5px;
+    right: 0;
+    width: 1px;
+    height: 12px;
+}

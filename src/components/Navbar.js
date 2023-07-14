@@ -3,14 +3,9 @@ const Navbar = () => {
     const toggleNav = () => {
         const mobileLinks = document.querySelector('#mobile-links')
         mobileLinks.classList.toggle("hidden")
-        // Make the page unscrollable
-        const body = document.querySelector('body')
-        body.classList.toggle('overflow-y-hidden')
-
     }
 
     const toggleList = (e) => {
-        return
         const nestedList = e.target.nextElementSibling
         nestedList.classList.toggle("hidden")
     }
@@ -20,38 +15,47 @@ const Navbar = () => {
             <div className="border-b fixed top-0 w-full z-10 bg-white shadow-s hidden xl:flex">
                 {/* Full Nav */}
                 <nav className="items-center justify-between container mx-auto ">
-                    <div><img src="/assets/img/logo.svg" alt="" /></div>
+                    <div><img src="/assets/img/logo.svg" alt="navbar logo" /></div>
+
                     <div className="flex">
                         <ul className="flex text-dark items-center">
-                            <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer" onMouseEnter={toggleList} onMouseLeave={toggleList}>Residential</li>
-                            <div className="hidden absolute top-[92px] bg-pale-silver py-6">
-                                <ul className="flex bg-pale-silver w-full">
-                                    <li className="ps-2 pe-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer">Price Plans</li>
+                            <div className="subnav h-full">
+                                <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer subnav">Residential</li>
+                                <ul className="bg-pale-silver absolute top-[92px] py-6 subnav-content z-">
+                                    <li className="ps-2 pe-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer ">Price Plans</li>
                                     <li className="px-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer">Referral</li>
                                     <li className="px-6 hover:text-fire cursor-pointer">Plan Calculator</li>
                                 </ul>
                             </div>
-                            <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer">Commercial</li>
-                            {/* <ul>
-                                    <li>Price Plans</li>
-                                </ul> */}
-                            <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer">Promotions</li>
-                            {/* <ul>
-                                    <li>Promotions</li>
-                                    <li>Rewards</li>
-                                </ul> */}
-                            <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer">Why Keppel Electric</li>
-                            {/* <ul>
-                                    <li>Who We Are</li>
-                                    <li>OEM</li>
-                                </ul> */}
+                            <div className="subnav h-full">
+                                <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer subnav">Commercial</li>
+                                <ul className="bg-pale-silver absolute top-[92px] py-6 subnav-content">
+                                    <li className="ps-2 hover:text-fire cursor-pointer ">Price Plans</li>
+                                </ul>
+                            </div>
+                            <div className="subnav h-full">
+                                <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer subnav">Promotions</li>
+                                <ul className="bg-pale-silver absolute top-[92px] py-6 subnav-content">
+                                    <li className="ps-2 pe-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer ">Referral</li>
+                                    <li className="px-6 hover:text-fire cursor-pointer">Rewards</li>
+                                </ul>
+                            </div>
+                            <div className="subnav h-full">
+                                <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer subnav">Why Keppel Electric</li>
+                                <ul className="bg-pale-silver absolute top-[92px] py-6 subnav-content">
+                                    <li className="ps-2 pe-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer ">Who We Are</li>
+                                    <li className="px-6 hover:text-fire cursor-pointer">About OEM</li>
+                                </ul>
+                            </div>
                             <li className="font-belleza py-7 px-2 hover:bg-pale-silver h-full items-center cursor-pointer">Sustainable Energy</li>
                             <li className="font-belleza py-7 px-2 hover:bg-pale-silver h-full items-center cursor-pointer">Articles</li>
-                            <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer">Support</li>
-                            {/* <ul>
-                                    <li>FAQ</li>
-                                    <li>Contact Us</li>
-                                </ul> */}
+                            <div className="subnav h-full">
+                                <li className="font-belleza py-7 px-2 full-arrow-bottom relative pe-6 hover:bg-pale-silver h-full items-center cursor-pointer subnav">Support</li>
+                                <ul className="bg-pale-silver absolute top-[92px] py-6 subnav-content">
+                                    <li className="ps-2 pe-6 border-e-2 border-e-sandy-brown hover:text-fire cursor-pointer ">FAQ</li>
+                                    <li className="px-6 hover:text-fire cursor-pointer">Contact Us</li>
+                                </ul>
+                            </div>
                             <span className="text-dark py-7 px-2 cursor-pointer hover:text-sandy-brown">
                                 <a href="/" className="flex leading-9 hover:text-sandy-brown">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30.947 29.943" fill="currentColor" className="me-3">
@@ -63,19 +67,22 @@ const Navbar = () => {
                                     </svg>Login</a>
                             </span>
                             <div className="my-auto"><button className="rounded-full bg-fire border border-fire hover:bg-white hover:text-fire text-white px-8 leading-9">Sign up</button></div>
+
+                            {/* Empty Subnav: For bg purposes */}
+                            <div id="subnav-bg" className="subnav-empty-bg z-[-1] absolute top-[92px] left-0 bg-pale-silver py-9  w-full">
+                            </div>
+
                         </ul>
                     </div>
                 </nav>
-
-
             </div>
 
+            {/* Mobile Nav */}
             <div className="border-b fixed top-0 w-full z-10 bg-white shadow-s">
-                {/* Mobile Nav */}
-                <nav className="items-center justify-between flex xl:hidden px-2">
-                    <div><img src="/assets/img/logo.svg" alt="" /></div>
-                    <div className="py-7 px-2">
-                        <button className="w-8 h-8 text-dark my-auto" type="button" onClick={toggleNav}>
+                <nav className="items-center justify-between flex xl:hidden px-4">
+                    <div><img src="/assets/img/logo.svg" alt="mobile navbar logo" /></div>
+                    <div className="py-7 px-2 items-end flex">
+                        <button className="w-8 h-10 text-dark my-auto" type="button" onClick={toggleNav}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg>
@@ -85,8 +92,8 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Links */}
-            <div id="mobile-links" className=" pt-6 hidden absolute z-0 w-full h-[100%] overflow-y-auto xl:hidden mobile-links-scrollbar">
-                <div className="flex flex-col justify-between w-full h-full bg-pale-silver pt-[92px]">
+            <div id="mobile-links" className=" pt-6 hidden fixed z-[1] w-full h-[100%] overflow-y-auto xl:hidden mobile-links-scrollbar">
+                <div className="flex flex-col justify-between w-full h-full bg-pale-silver pt-[100px]">
                     <div className="bg-pale-silver">
                         {/* Search Box */}
                         <div className="px-6 flex items-center">

@@ -13,6 +13,7 @@ module.exports = {
         'sandy-brown': '#CDA86F',
         'pale-silver': '#e7e1d6',
         silver: '#d5d2ca',
+        linen: '#eae6de',
       },
       fontFamily: {
         'noto-sans': ['Noto Sans'],
